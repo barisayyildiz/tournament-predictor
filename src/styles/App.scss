@@ -1,0 +1,9 @@
+.group {
+}
+
+.group_row {
+  transition: all 0.1s ease;
+  &:active {
+    background-color: #8dd4fd;
+  }
+}
