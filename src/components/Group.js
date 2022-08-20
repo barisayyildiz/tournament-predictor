@@ -32,7 +32,7 @@ export default function Group({ name, teams }) {
   });
 
   return (
-    <div className="group flex flex-col w-96 , border-slate-400 select-none">
+    <div className="group flex flex-col w-96 border-slate-400 select-none">
       <h2
         style={{
           backgroundColor: "#56C0FF",

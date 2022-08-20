@@ -5,53 +5,14 @@ import Team from "./Team";
 import GroupRow from "./GroupRow";
 import Group from "./Group";
 
+import { groups } from "../constants";
+
 function App() {
   return (
-    <div className="App flex my-40 justify-center align-middle gap-20">
-      <Group
-        name="A"
-        teams={[
-          "Turkey",
-          "Spain",
-          "Montenegro",
-          "Georgia",
-          "Bulgaria",
-          "Belgium",
-        ]}
-      />
-      <Group
-        name="A"
-        teams={[
-          "Turkey",
-          "Spain",
-          "Montenegro",
-          "Georgia",
-          "Bulgaria",
-          "Belgium",
-        ]}
-      />
-      <Group
-        name="A"
-        teams={[
-          "Turkey",
-          "Spain",
-          "Montenegro",
-          "Georgia",
-          "Bulgaria",
-          "Belgium",
-        ]}
-      />
-      <Group
-        name="A"
-        teams={[
-          "Turkey",
-          "Spain",
-          "Montenegro",
-          "Georgia",
-          "Bulgaria",
-          "Belgium",
-        ]}
-      />
+    <div className="App flex flex-wrap my-40 justify-center items-start gap-20">
+      {groups.map(({ name, teams }) => (
+        <Group name={name} teams={teams} />
+      ))}
     </div>
   );
 }
