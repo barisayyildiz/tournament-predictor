@@ -1,18 +1,20 @@
 import React, { useState, useRef } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import "../styles/App.scss";
 
-import Team from "./Team";
-import GroupRow from "./GroupRow";
-import Group from "./Group";
-
-import { groups } from "../constants";
+import GroupPage from "../pages/GroupPage";
+import KnockoutPage from "../pages/KnockoutPage";
 
 function App() {
   return (
-    <div className="App flex flex-wrap my-40 justify-center items-start gap-20">
-      {groups.map(({ name, teams }) => (
-        <Group name={name} teams={teams} />
-      ))}
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={<GroupPage />} />
+          <Route path="/knockout" element={<KnockoutPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

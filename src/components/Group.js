@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-import GroupRow from "./GroupRow";
 import Team from "./Team";
 
-export default function Group({ name, teams }) {
+export default function Group({ name, teams, groups, setGroups }) {
   const [teamsState, setTeamsState] = useState(teams);
 
   const handleOnDragEnd = (result) => {
@@ -13,17 +12,12 @@ export default function Group({ name, teams }) {
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
     setTeamsState(items);
+    setGroups({ ...groups, [name]: items });
   };
 
   const getItemStyle = (isDragging, draggableStyle, index) => ({
-    // some basic styles to make the items look a bit nicer
     userSelect: "none",
-
-    // change background colour if dragging
-    // background: isDragging ? "lightgreen" : "white",
     background: index <= 3 ? "lightgreen" : "white",
-
-    // styles we need to apply on draggables
     ...draggableStyle,
   });
 
@@ -32,7 +26,7 @@ export default function Group({ name, teams }) {
   });
 
   return (
-    <div className="group flex flex-col w-96 border-slate-400 select-none">
+    <div className="group flex flex-col w-96 select-none shadow-md">
       <h2
         style={{
           backgroundColor: "#56C0FF",
@@ -45,7 +39,7 @@ export default function Group({ name, teams }) {
         <Droppable droppableId="droppable">
           {(provided, snapshot) => (
             <div
-              className="group flex flex-col w-96 border border-slate-400 select-none"
+              className="group flex flex-col  select-none"
               {...provided.droppableProps}
               ref={provided.innerRef}
               style={getListStyle(snapshot.isDraggingOver)}

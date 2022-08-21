@@ -1,32 +1,13 @@
-export const groups = [
-  {
-    name: "A",
-    teams: ["Turkey", "Spain", "Montenegro", "Georgia", "Bulgaria", "Belgium"],
-  },
-  {
-    name: "B",
-    teams: [
-      "Germany",
-      "Hungary",
-      "Slovenia",
-      "Lithuania",
-      "Bosnia and Herzegovina",
-      "France",
-    ],
-  },
-  {
-    name: "C",
-    teams: [
-      "Greece",
-      "Estonia",
-      "Ukraine",
-      "Great Britain",
-      "Italy",
-      "Croatia",
-    ],
-  },
-  {
-    name: "D",
-    teams: ["Netherlands", "Finland", "Poland", "Czechia", "Israel", "Serbia"],
-  },
-];
+export const groups = {
+  A: ["Turkey", "Spain", "Montenegro", "Georgia", "Bulgaria", "Belgium"],
+  B: [
+    "Germany",
+    "Hungary",
+    "Slovenia",
+    "Lithuania",
+    "Bosnia and Herzegovina",
+    "France",
+  ],
+  C: ["Greece", "Estonia", "Ukraine", "Great Britain", "Italy", "Croatia"],
+  D: ["Netherlands", "Finland", "Poland", "Czechia", "Israel", "Serbia"],
+};
