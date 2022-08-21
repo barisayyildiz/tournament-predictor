@@ -16,6 +16,7 @@ export default function GroupPage() {
           first: groupState["B"][1],
           second: groupState["A"][2],
         },
+        won: null,
         next: 8,
       },
       {
@@ -24,6 +25,7 @@ export default function GroupPage() {
           first: groupState["C"][0],
           second: groupState["D"][3],
         },
+        won: null,
         next: 8,
       },
       {
@@ -32,6 +34,7 @@ export default function GroupPage() {
           first: groupState["A"][0],
           second: groupState["B"][3],
         },
+        won: null,
         next: 9,
       },
       {
@@ -40,6 +43,7 @@ export default function GroupPage() {
           first: groupState["D"][1],
           second: groupState["C"][2],
         },
+        won: null,
         next: 9,
       },
       {
@@ -48,6 +52,7 @@ export default function GroupPage() {
           first: groupState["B"][0],
           second: groupState["A"][3],
         },
+        won: null,
         next: 10,
       },
       {
@@ -56,6 +61,7 @@ export default function GroupPage() {
           first: groupState["C"][1],
           second: groupState["D"][2],
         },
+        won: null,
         next: 10,
       },
       {
@@ -64,6 +70,7 @@ export default function GroupPage() {
           first: groupState["A"][1],
           second: groupState["B"][2],
         },
+        won: null,
         next: 11,
       },
       {
@@ -72,6 +79,7 @@ export default function GroupPage() {
           first: groupState["D"][0],
           second: groupState["C"][3],
         },
+        won: null,
         next: 11,
       },
       {
@@ -80,6 +88,7 @@ export default function GroupPage() {
           first: null,
           second: null,
         },
+        won: null,
         next: 12,
       },
       {
@@ -88,6 +97,7 @@ export default function GroupPage() {
           first: null,
           second: null,
         },
+        won: null,
         next: 12,
       },
       {
@@ -96,6 +106,7 @@ export default function GroupPage() {
           first: null,
           second: null,
         },
+        won: null,
         next: 13,
       },
       {
@@ -104,6 +115,7 @@ export default function GroupPage() {
           first: null,
           second: null,
         },
+        won: null,
         next: 13,
       },
       {
@@ -112,6 +124,7 @@ export default function GroupPage() {
           first: null,
           second: null,
         },
+        won: null,
         next: 14,
       },
       {
@@ -120,6 +133,7 @@ export default function GroupPage() {
           first: null,
           second: null,
         },
+        won: null,
         next: 14,
       },
       {
@@ -128,6 +142,7 @@ export default function GroupPage() {
           first: null,
           second: null,
         },
+        won: null,
         next: null,
       },
     ];

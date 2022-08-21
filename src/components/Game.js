@@ -26,21 +26,51 @@ export default function Game({
   nextID,
   knockout,
   setKnockout,
+  won,
 }) {
-  const [selected, setSelected] = useState(null);
-
   const handleOnClick = (name) => {
+    if (!nextID) {
+      const temp = [...knockout];
+      temp[gameID].won = name;
+      setKnockout(temp);
+      return;
+    }
+
+    const curGame = knockout[gameID];
+    curGame.won = name;
     const temp = [...knockout];
     const nextGame = knockout.find((k) => k.id === nextID);
-    if (gameID % 2 === 0) {
-      nextGame.teams.first = name;
-    } else {
-      nextGame.teams.second = name;
+    if (nextGame) {
+      if (gameID % 2 === 0) {
+        nextGame.teams.first = name;
+      } else {
+        nextGame.teams.second = name;
+      }
     }
     temp.splice(nextID, 1, nextGame);
     let nextRounds;
     let nextRoundStart;
 
+    // 1 tur ve sonrasındaki galipleri siler
+    if (gameID <= 7) {
+      nextRoundStart = 8;
+      nextRounds = temp.slice(nextRoundStart);
+    } else if (gameID <= 11) {
+      nextRoundStart = 12;
+      nextRounds = temp.slice(nextRoundStart);
+    }
+
+    if (nextRounds) {
+      nextRounds = nextRounds.map((nextR) => {
+        return {
+          ...nextR,
+          won: null,
+        };
+      });
+      temp.splice(nextRoundStart, nextRounds.length, ...nextRounds);
+    }
+
+    // 2 tur ve sonrasındaki maçları siler
     if (gameID <= 7) {
       nextRoundStart = 12;
       nextRounds = temp.slice(nextRoundStart);
@@ -57,15 +87,14 @@ export default function Game({
             first: null,
             second: null,
           },
+          won: null,
         };
       });
       setKnockout(
         temp.splice(nextRoundStart, nextRounds.length, ...nextRounds)
       );
-      setSelected(selected !== name ? name : selected);
       setKnockout(temp);
     } else {
-      setSelected(selected !== name ? name : selected);
       setKnockout(temp);
     }
   };
@@ -81,9 +110,9 @@ export default function Game({
       <TeamWrapper
         style={{
           backgroundColor: `${
-            selected === teamFirst && teamFirst ? "rgb(86, 192, 255)" : ""
+            won === teamFirst && teamFirst ? "rgb(86, 192, 255)" : ""
           }`,
-          color: `${selected === teamFirst && teamFirst ? "#ffffff" : ""}`,
+          color: `${won === teamFirst && teamFirst ? "#ffffff" : ""}`,
         }}
         onClick={() => handleOnClick(teamFirst)}
         // onClick={() => setSelected(selected !== 1 && teamFirst ? 1 : null)}
@@ -92,9 +121,9 @@ export default function Game({
       <TeamWrapper
         style={{
           backgroundColor: `${
-            selected === teamSecond && teamSecond ? "rgb(86, 192, 255)" : ""
+            won === teamSecond && teamSecond ? "rgb(86, 192, 255)" : ""
           }`,
-          color: `${selected === teamSecond && teamSecond ? "#ffffff" : ""}`,
+          color: `${won === teamSecond && teamSecond ? "#ffffff" : ""}`,
         }}
         onClick={() => handleOnClick(teamSecond)}
         // onClick={() => setSelected(selected !== 2 && teamSecond ? 2 : null)}
