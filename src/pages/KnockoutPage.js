@@ -14,7 +14,7 @@ export default function KnockoutPage() {
 
   console.log(state);
   return (
-    <div className="flex flew-row gap-10 items-center justify-around">
+    <div className="flex flew-row gap-20 justify-around px-5 py-3">
       <Round
         knockout={knockout}
         setKnockout={setKnockout}
