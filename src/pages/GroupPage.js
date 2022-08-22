@@ -149,8 +149,9 @@ export default function GroupPage() {
   };
 
   return (
-    <div className="flex flex-col justify-between items-center">
-      <div className="flex flex-wrap my-40 justify-center items-start gap-20">
+    <div className="flex flex-col justify-end items-center py-10 gap-16">
+      <h1 className="text-3xl">Group Stage</h1>
+      <div className="flex flex-wrap justify-center items-start gap-20">
         {Object.keys(groupState).map((name, index) => {
           return (
             <Group
